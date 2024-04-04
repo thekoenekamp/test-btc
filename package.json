@@ -1,0 +1,50 @@
+{
+	"name": "nerveglobal-company-website",
+	"version": "0.1.0",
+	"description": "Business website and portfolio for Nerve Global GmbH, built with Next.js",
+	"author": "Christoph Koenekamp <contact@thekoenekamp.com>",
+	"license": "MIT",
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nerveglobal/website-company.git"
+	},
+	"homepage": "http://www.nerveglobal.ch",
+	"keywords": [
+		"nextjs",
+		"react",
+		"business-website"
+	],
+	"scripts": {
+		"dev": "next dev -p 3333",
+		"build": "next build",
+		"export": "next build && next export",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.10.5",
+		"@emotion/styled": "^11.10.5",
+		"@mui/icons-material": "^5.10.9",
+		"@mui/material": "^5.14.4",
+		"@svgr/webpack": "^8.0.1",
+		"next": "^13.4.13",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-redux": "^8.0.5",
+		"redux": "^4.2.1",
+		"@reduxjs/toolkit": "^1.9.2",
+		"redux-logger": "^3.0.6"
+	},
+	"devDependencies": {
+		"@types/node": "18.7.9",
+		"@types/react": "18.0.17",
+		"eslint": "8.46.0",
+		"eslint-config-next": "13.4.13",
+		"typescript": "4.7.4"
+	},
+	"engines": {
+		"node": ">=18.16.1"
+	},
+	"browserslist": "defaults"
+}
