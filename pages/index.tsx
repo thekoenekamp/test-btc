@@ -4,8 +4,10 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AboutUs from '../components/AboutUs';
+import { ConnectOnly } from '../components/ConnectOnly';
 import EVMChains from '../components/EVMChains';
 import LoadingScreen from '../components/LoadingScreen';
+import SendBitcoin from '../components/sendBitcoin';
 import Serices from '../components/Services';
 import TechStack from '../components/TechStack';
 import { loadingSlice } from '../state/loading/loadingSlice';
@@ -207,6 +209,9 @@ export default function Page() {
 
 	// State
 	const [fadeOut, setFadeOut] = useState(false);
+	const [leatherAddressForp2wpkh, setLeatherAddressForp2wpkh] = useState<string | undefined>();
+	const [leatherAddressForp2tr, setLeatherAddressForp2tr] = useState<string | undefined>();
+	const [leatherAddressForSTX, setLeatherAddressForSTX] = useState<string | undefined>();
 
 	useEffect(() => {
 		// Check if this is the first load
@@ -219,6 +224,25 @@ export default function Page() {
 			return () => clearTimeout(timer);
 		}
 	}, []);
+
+	// Define the function that contains the logic you want to execute
+	const getUserAddresses = async () => {
+		const userAddresses = await window.LeatherProvider?.request('getAddresses');
+		console.log('userAddresses', userAddresses);
+		setLeatherAddressForp2wpkh(userAddresses.result.addresses[0].address);
+		setLeatherAddressForp2tr(userAddresses.result.addresses[1].address);
+		setLeatherAddressForSTX(userAddresses.result.addresses[2].address);
+	};
+
+	// Send a transfer
+	const sendTransfer = async () => {
+		const resp = await window.LeatherProvider?.request('sendTransfer', {
+			address: 'tb1qkzvk9hr7uvas23hspvsgqfvyc8h4nngeqjqtnj',
+			amount: '10000',
+		});
+
+		console.log(resp.result.txid);
+	};
 
 	return (
 		<>
@@ -237,35 +261,39 @@ export default function Page() {
 				<meta name="twitter:description" content="Business website of Nerve Global GmbH." />
 				<meta name="twitter:image" content="https://nerveglobal.ch/favicon.ico" />
 			</Head>
-			{loadingValue ? (
+			{/* {loadingValue ? (
 				<LoadingScreen fadeOut={fadeOut} />
-			) : (
-				<StyledBox>
-					<StyledHeader theme={theme}>
-						{/* <VideoBackground autoPlay loop muted playsInline preload="auto" poster="/img/alpsStartFrame.jpg">
+			) : ( */}
+			<StyledBox>
+				<StyledHeader theme={theme}>
+					{/* <VideoBackground autoPlay loop muted playsInline preload="auto" poster="/img/alpsStartFrame.jpg">
 							<source src="/video/alpsCompressed.mp4" type="video/mp4" />
 							Your browser does not support the video tag.
 						</VideoBackground> */}
 
-						<Title>
-							<h1>True to Web3</h1>
-							<a>We exclusively work on unique ideas in the emerging sector of blockchain technology.</a>
-						</Title>
-					</StyledHeader>
-					<TechStack />
-					<Serices />
-					{/* <TechStack /> */}
-					<EVMChains />
-					{/* <AboutUs /> */}
-					{/* <StyledCTABox theme={theme}>
+					<Title>
+						{/* <h1>BTC Chain Test</h1> */}
+						{/* <a>Hi Phil</a> */}
+						<ConnectOnly />
+					</Title>
+					<button onClick={getUserAddresses}>Connect Leather</button>
+					{leatherAddressForp2wpkh}
+					<button onClick={sendTransfer}>Send Transfer from Leather</button>
+				</StyledHeader>
+				<TechStack />
+				<Serices />
+				{/* <TechStack /> */}
+				<EVMChains />
+				{/* <AboutUs /> */}
+				{/* <StyledCTABox theme={theme}>
 						<h1>Experience commitment to excellence</h1>
 						<StyledDivider theme={theme} />
 						<Link href={`/contact`} passHref style={{ textDecoration: 'none' }}>
 							<StyledButton theme={theme}>Contact us</StyledButton>
 						</Link>
 					</StyledCTABox> */}
-				</StyledBox>
-			)}
+			</StyledBox>
+			{/* )} */}
 		</>
 	);
 }

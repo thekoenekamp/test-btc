@@ -16,7 +16,7 @@
 		"business-website"
 	],
 	"scripts": {
-		"dev": "next dev -p 3333",
+		"dev": "next dev -p 3444",
 		"build": "next build",
 		"export": "next build && next export",
 		"start": "next start",
@@ -27,14 +27,16 @@
 		"@emotion/styled": "^11.10.5",
 		"@mui/icons-material": "^5.10.9",
 		"@mui/material": "^5.14.4",
+		"@reduxjs/toolkit": "^1.9.2",
 		"@svgr/webpack": "^8.0.1",
+		"@vercel/postgres": "^0.8.0",
 		"next": "^13.4.13",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-redux": "^8.0.5",
 		"redux": "^4.2.1",
-		"@reduxjs/toolkit": "^1.9.2",
-		"redux-logger": "^3.0.6"
+		"redux-logger": "^3.0.6",
+		"sats-connect": "2.1.0"
 	},
 	"devDependencies": {
 		"@types/node": "18.7.9",
