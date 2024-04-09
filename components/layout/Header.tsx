@@ -4,15 +4,9 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { AppBar, Button } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
-import { Baskervville } from 'next/font/google';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
-
-const fontText = Baskervville({
-	subsets: ['latin'],
-	weight: ['400'],
-});
 
 // Define the keyframes for the slide-down animation
 const slideDown = keyframes`
@@ -169,7 +163,6 @@ const StyledLink = styled(Link)<{ theme: any }>`
 
 	h1 {
 		color: ${(props) => props.theme.palette.text.primary};
-		font-family: ${fontText.style.fontFamily};
 		font-size: 0.8rem;
 		cursor: pointer;
 		position: relative; // Ensure h1 has a position context

@@ -1,10 +1,10 @@
 import { createTheme } from '@mui/material/styles';
-import { Baskervville } from 'next/font/google';
+// import { Baskervville } from 'next/font/google';
 
-const fontText = Baskervville({
-	subsets: ['latin'],
-	weight: ['400'],
-});
+// const fontText = Baskervville({
+// 	subsets: ['latin'],
+// 	weight: ['400'],
+// });
 
 export const lightTheme = createTheme({
 	components: {
@@ -85,7 +85,7 @@ export const lightTheme = createTheme({
 		divider: '#D1D1D6',
 	},
 	typography: {
-		fontFamily: `${fontText.style.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif`,
+		// fontFamily: `${fontText.style.fontFamily}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif`,
 	},
 	shape: {
 		borderRadius: 12,

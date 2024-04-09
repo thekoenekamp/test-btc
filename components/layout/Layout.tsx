@@ -1,16 +1,16 @@
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@mui/material';
 import { CssBaseline } from '@mui/material/';
-import { Baskervville } from 'next/font/google';
+// import { Baskervville } from 'next/font/google';
 import React, { useEffect, useState } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import { darkTheme, lightTheme } from './styles';
 
-const fontText = Baskervville({
-	subsets: ['latin'],
-	weight: ['400'],
-});
+// const fontText = Baskervville({
+// 	subsets: ['latin'],
+// 	weight: ['400'],
+// });
 
 const StyledSection = styled.section<{ dynamicHeight: number | string }>`
 	display: flex;
@@ -21,7 +21,6 @@ const StyledSection = styled.section<{ dynamicHeight: number | string }>`
 	align-content: center;
 	margin: 0 auto 0 auto;
 	min-height: ${(props) => props.dynamicHeight}px;
-	font-family: ${fontText.style.fontFamily};
 	// max-height: 100vh;
 	min-width: 100vw;
 	max-width: 100vw;

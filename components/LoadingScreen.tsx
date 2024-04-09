@@ -1,12 +1,6 @@
 import styled from '@emotion/styled';
 import { useTheme } from '@mui/material/styles';
-import { Baskervville } from 'next/font/google';
 import React from 'react';
-
-const fontText = Baskervville({
-	subsets: ['latin'],
-	weight: ['400'],
-});
 
 const LoadingSection = styled.section<{ theme: any; fadeOut: any }>`
 	display: flex;
@@ -21,7 +15,6 @@ const LoadingSection = styled.section<{ theme: any; fadeOut: any }>`
 	overflow: hidden;
 	background: ${({ theme }) => theme.palette.background.default};
 	background-image: ${({ theme }) => theme.components.MuiCssBaseline.styleOverrides.body.backgroundImage};
-	font-family: ${fontText.style.fontFamily};
 	font-size: 3rem;
 	font-weight: 400;
 	animation: pulse 2s infinite;

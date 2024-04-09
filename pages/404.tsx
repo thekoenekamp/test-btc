@@ -1,17 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Typography } from '@mui/material';
-import { Baskervville, Luxurious_Script } from 'next/font/google';
 import Head from 'next/head';
-
-const font = Luxurious_Script({
-	subsets: ['latin'],
-	weight: '400',
-});
-
-const fontText = Baskervville({
-	subsets: ['latin'],
-	weight: ['400'],
-});
 
 const StyledBox = styled(Box)`
 	display: flex;
@@ -34,7 +23,6 @@ const Title = styled(Typography)`
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	font-family: ${fontText.style.fontFamily};
 	color: #fff;
 	text-transform: none;
 	font-size: 3rem;
@@ -85,7 +73,6 @@ const Text = styled(Typography)`
 	justify-content: center;
 	align-items: center;
 	align-content: center;
-	font-family: ${fontText.style.fontFamily};
 	color: #fff;
 	cursor: default;
 	text-transform: none;
